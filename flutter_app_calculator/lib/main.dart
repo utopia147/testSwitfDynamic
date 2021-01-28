@@ -56,11 +56,6 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   _decimalAdd(decimal) {
-    for (var i = 0; i < x2.length; i++) {
-      if (x2[i] == '.') {
-        checkFloat = true;
-      }
-    }
     for (var i = 0; i < x1.length; i++) {
       if (x1[i] == '.') {
         checkDecimal = true;
@@ -242,6 +237,11 @@ class _MyHomePageState extends State<MyHomePage> {
                             case '=':
                               var a1;
                               var a2;
+                              for (var i = 0; i < x2.length; i++) {
+                                if (x2[i] == '.') {
+                                  checkFloat = true;
+                                }
+                              }
                               if (x2 != '') {
                                 if (checkFloat) {
                                   a1 = double.parse(x1);
