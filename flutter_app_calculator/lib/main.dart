@@ -95,6 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
         _operator = _operatorAdd;
         x2 = x1;
         x1 = '0';
+        plusSwitchMinus = true;
       });
     }
   }
@@ -122,6 +123,9 @@ class _MyHomePageState extends State<MyHomePage> {
       x2 = '';
       result = '';
       _operator = '';
+      checkFloat = false;
+      plusSwitchMinus = true;
+      checkDecimal = false;
     });
   }
 
@@ -257,6 +261,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   x2 = '';
                                   _operator = '';
                                   x1 = result;
+                                  plusSwitchMinus = true;
                                 });
                               } else {}
                               break;
