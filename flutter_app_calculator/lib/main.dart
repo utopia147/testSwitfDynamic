@@ -37,23 +37,42 @@ class _MyHomePageState extends State<MyHomePage> {
   String _operator = '';
   bool checkFloat = false;
   bool plusSwitchMinus = true;
-
+  bool checkDecimal;
   tapAddNumber(String numberPad) {
     setState(() {
-      if (numberPad == '.') {
-        checkFloat = true;
-        print(checkFloat);
-      }
       if (result != '') {
         x1 = '0';
         result = '';
       }
+
       if (numberPad == '0' && x1 == '0' && numberPad == '.') {
         //do nothing
       } else if (numberPad != 0 && x1 == '0') {
         x1 = numberPad;
       } else {
         x1 += numberPad;
+      }
+    });
+  }
+
+  _decimalAdd(decimal) {
+    for (var i = 0; i < x2.length; i++) {
+      if (x2[i] == '.') {
+        checkFloat = true;
+      }
+    }
+    for (var i = 0; i < x1.length; i++) {
+      if (x1[i] == '.') {
+        checkDecimal = true;
+      } else {
+        checkDecimal = false;
+      }
+    }
+    setState(() {
+      if (checkDecimal == true) {
+        //do noting
+      } else {
+        x1 += decimal;
       }
     });
   }
@@ -216,6 +235,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               break;
                             case 'CE':
                               _clearAll();
+                              break;
+                            case '.':
+                              _decimalAdd('.');
                               break;
                             case '=':
                               var a1;
