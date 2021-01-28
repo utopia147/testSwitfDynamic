@@ -220,22 +220,23 @@ class _MyHomePageState extends State<MyHomePage> {
                             case '=':
                               var a1;
                               var a2;
-                              if (checkFloat) {
-                                a1 = double.parse(x1);
-                                a2 = double.parse(x2);
-                              } else {
-                                a1 = int.parse(x1);
-                                a2 = int.parse(x2);
-                              }
-                              result = claculator
-                                  .sumCalculator(a1, _operator, a2)
-                                  .toString();
-                              setState(() {
-                                x2 = '';
-                                _operator = '';
-                                x1 = result;
-                              });
-
+                              if (x2 != '') {
+                                if (checkFloat) {
+                                  a1 = double.parse(x1);
+                                  a2 = double.parse(x2);
+                                } else {
+                                  a1 = int.parse(x1);
+                                  a2 = int.parse(x2);
+                                }
+                                result = claculator
+                                    .sumCalculator(a1, _operator, a2)
+                                    .toString();
+                                setState(() {
+                                  x2 = '';
+                                  _operator = '';
+                                  x1 = result;
+                                });
+                              } else {}
                               break;
 
                             default:
