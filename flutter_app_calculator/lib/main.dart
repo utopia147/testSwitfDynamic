@@ -36,6 +36,8 @@ class _MyHomePageState extends State<MyHomePage> {
   String result = '';
   String _operator = '';
   bool checkFloat = false;
+  bool plusSwitchMinus = true;
+
   tapAddNumber(String numberPad) {
     setState(() {
       if (numberPad == '.') {
@@ -84,15 +86,18 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   _plusMinusSign(plusminus) {
-    bool plusSwitchMinus = true;
+    print(plusSwitchMinus);
 
     setState(() {
-      if (plusSwitchMinus) {
-        x1 = '-$x1';
-        plusSwitchMinus = false;
+      if (x1 == '0') {
       } else {
-        plusSwitchMinus = true;
-        x1 = '$x1';
+        if (plusSwitchMinus == true) {
+          plusSwitchMinus = false;
+          x1 = '-$x1';
+        } else if (plusSwitchMinus == false) {
+          plusSwitchMinus = true;
+          x1 = x1.substring(1, x1.length);
+        }
       }
     });
   }
