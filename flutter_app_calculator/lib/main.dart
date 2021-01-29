@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
       if (numberPad == '0' && x1 == '0' && numberPad == '.') {
         //do nothing
-      } else if (numberPad != 0 && x1 == '0') {
+      } else if (numberPad != '0' && x1 == '0') {
         x1 = numberPad;
       } else {
         x1 += numberPad;
@@ -243,6 +243,11 @@ class _MyHomePageState extends State<MyHomePage> {
                               var a2;
                               for (var i = 0; i < x2.length; i++) {
                                 if (x2[i] == '.') {
+                                  checkFloat = true;
+                                }
+                              }
+                              for (var i = 0; i < x1.length; i++) {
+                                if (x1[i] == '.') {
                                   checkFloat = true;
                                 }
                               }
